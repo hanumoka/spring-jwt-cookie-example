@@ -73,7 +73,7 @@ public class UserResource {
                 String access_token = JWT.create()
                         .withSubject(user.getUsername())
                         .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
-                        .withIssuer(request.getRequestURI().toString())
+                        .withIssuer(request.getRequestURI())
                         .withClaim("roles", user.getRoles().stream().map(Role::getName).collect(Collectors.toList()))
                         .sign(algorithm);
 
@@ -88,7 +88,6 @@ public class UserResource {
                 // 토큰이 유효하지 않은 경우
                 response.setHeader("error", exception.getMessage());
                 response.setStatus(FORBIDDEN.value());
-//                    response.sendError(FORBIDDEN.value());
                 Map<String, String> error = new HashMap<>();
                 error.put("error_message", exception.getMessage());
                 response.setContentType(APPLICATION_JSON_VALUE);

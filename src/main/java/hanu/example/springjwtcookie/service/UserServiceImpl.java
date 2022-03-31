@@ -2,6 +2,7 @@ package hanu.example.springjwtcookie.service;
 
 import hanu.example.springjwtcookie.domain.Role;
 import hanu.example.springjwtcookie.domain.User;
+import hanu.example.springjwtcookie.repo.RefreshTokenRepo;
 import hanu.example.springjwtcookie.repo.RoleRepo;
 import hanu.example.springjwtcookie.repo.UserRepo;
 import lombok.RequiredArgsConstructor;

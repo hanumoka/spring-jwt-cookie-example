@@ -25,6 +25,14 @@ public class User {
     private String name;
     private String username;
     private String password;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<>();
+
+//    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "refreshToken")
+//    private RefreshToken refreshToken;
+
+//    @OneToMany
+//    private Collection<BlackListToken> blackListTokens;
 }
